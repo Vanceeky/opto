@@ -1,0 +1,66 @@
+{%  extends 'app/index.html' %}
+
+{% block content %}
+
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Name</th>
+					<th>Email</th>
+				</tr>
+
+				{% for pat in patient %}
+					<tr>
+						<td><a class="btn btn-sm btn-info" href="{% url 'patient' patient.id %}">View</a></td>
+						<td>{{patient.first_name}}</td>
+						<td>{{app.patient.email}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for ap in appointment %}
+					<tr>
+	
+						<td>{{ap.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

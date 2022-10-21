@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<div class="container-lg">
+
+    <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Request Appointment
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST">
+                    
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Request Appointment </h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> Are you sure you want to request an appointment? </p>
+                        {% for message in messages%}
+
+                        <p> {{ message }}</p>
+
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href= "{% url 'send_request' %}" value="Send Request" class="btn btn-primary"> Send request </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+
+    </div>

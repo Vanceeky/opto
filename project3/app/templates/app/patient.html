@@ -1,0 +1,52 @@
+{%  extends 'app/index.html' %}
+
+{% block content %}
+
+
+<div class="col-md">
+	<div class="card card-body">
+		<h5>Contact Information</h5>
+		<hr>
+		<p>Email: {{patient.first_name}}</p>
+		<p>Phone: {{patient.email}}</p>
+	</div>
+
+
+</div>
+
+<div class="col-md">
+	<div class="card card-body">
+		<h5>Contact Information</h5>
+		<hr>
+		<p>Email: {{patient.first_name}}</p>
+		<p>Phone: {{patient.email}}</p>
+	</div>
+
+
+</div>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form.management_form }}
+				{% for field in form %}
+					{{field}}
+					<hr>
+				{% endfor %}
+				
+				<input type="submit" name="Submit">
+			</form>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

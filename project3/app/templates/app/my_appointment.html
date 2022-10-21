@@ -1,0 +1,16 @@
+{% extends 'app/index.html' %}
+
+
+{% block body %}
+    {% include 'app/navbar.html' %}
+    <p> Appointment </p>
+
+    {% for app in appointment %}
+        <p> Status: {{ app.status}} </p>
+        <p> Appointment date: {{ app.accepted_date}} </p>
+
+
+    {% endfor %}
+
+{% endblock %}
+
